@@ -1,0 +1,18 @@
+version: '3.8'  # Puedes ajustar la versión según sea necesario
+
+services:
+  sqlserver2022:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver2022
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Mayonesa12369
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - /Users/joyboy/Desktop/gatos:/var/opt/mssql/backups
+
+volumes:
+  sqlserver_data:
+    driver: local
